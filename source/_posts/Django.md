@@ -6,9 +6,7 @@ tags:
 	- django
 categories: Python
 ---
-
-Django框架的简单使用。
-<!-- more -->
+![](http://p3ek8hcdl.bkt.clouddn.com/image/timgsss.jpg)<!-- more -->
 ## 简介
 ***
 + MVC

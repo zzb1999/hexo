@@ -7,8 +7,7 @@ tags:
 	- Database
 categories: Database
 ---
-Mysql数据库，是当前应用非常广泛的一款关系型数据库
-<!-- more -->
+![](http://p3ek8hcdl.bkt.clouddn.com/mysqlimg.jpg)<!-- more -->
 查看[官方网站](https://www.mysql.com/)
 查看[数据库排名](https://db-engines.com/en/ranking)
 

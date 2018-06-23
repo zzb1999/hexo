@@ -9,6 +9,7 @@ description: web安全，渗透测试，PHP，Python，java。
 author: Mr.T
 language: zh-Hans
 timezone: Asia/Shanghai
+avatar: /uploads/avatar.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

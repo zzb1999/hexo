@@ -9,6 +9,8 @@ tags:
 	- 盲注
 categories: 渗透
 ---
+
+![](http://p3ek8hcdl.bkt.clouddn.com/image/SQLinject.jpg)<!-- more -->
 # Mysql手工盲注(延时注入)
 
 盲注的核心是靠 if 判断来注入
