@@ -5,7 +5,7 @@
 # Site
 title: Mr.T'blog
 subtitle: 大多数人终将平庸的度过一生！
-description: web安全，渗透测试，PHP，Python，java。
+description: 专注于渗透测试|信息安全|Web安全培训|渗透测试培训等领域
 author: Mr.T
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -13,9 +13,9 @@ avatar: /uploads/avatar.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.ixysec.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title.html
 permalink_defaults:
 
 # Directory
@@ -75,9 +75,22 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
+
+
+baidu_url_submit:
+  count: 3 ## 比如3，代表提交最新的三个链接
+  host: www.ixysec.com ## 在百度站长平台中注册的域名
+  token: O9UG0u2sK21KiAeL ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: git@github.com:zzb1999/zzb1999.github.io.git
-  branch: master
+  - type: git
+  # repository: git@github.com:zzb1999/zzb1999.github.io.git
+  # repository: https://gitee.com/lao-t/ixysec.git
+    repository: https://git.coding.net/zzb1999/ixysec.git
+    branch: master
+  - type: baidu_url_submitter
+

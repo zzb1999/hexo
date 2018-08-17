@@ -7,7 +7,7 @@ tags:
 	- sql注入
 	- hack
 	- 盲注
-categories: 渗透
+categories: 渗透测试
 ---
 
 ![](http://p3ek8hcdl.bkt.clouddn.com/image/SQLinject.jpg)<!-- more -->

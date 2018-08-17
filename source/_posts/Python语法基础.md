@@ -945,14 +945,322 @@ continue的作用：用来结束本次循环，紧接着执行下一次的循环
 + break/continue只能用在循环中，除此以外不能单独使用
 + break/continue在嵌套循环中，只对最近的一层循环起作用
 
+## 字符串、列表、元组、字典
+### 字符串介绍
+想一想：
+>当打来浏览器登录某些网站的时候，需要输入密码，浏览器把密码传送到服务器后，服务器会对密码进行验证，其验证过程是把之前保存的密码与本次传递过去的密码进行对比，如果相等，那么就认为密码正确，否则就认为不对；服务器既然想要存储这些密码可以用数据库（比如MySQL），当然为了简单起见，咱们可以先找个变量把密码存储起来即可；那么怎样存储带有字母的密码呢？
 
+答：
+>字符串
 
+#### python中字符串的格式
+如下定义的变量a，存储的是数字类型的值
+```
+a = 100
+```
+如下定义的变量b，存储的是字符串类型的值
+```
+b = "hello ixysec"
+或者
+b = 'hello ixysec'
+```
+小总结：
 
++ 双引号或者单引号中的数据，就是字符串
 
+### 字符串输出
+demo 
+```
+name = 'laot'
+position = '学生'
+address = '辽宁鞍山'
 
+print('--------------------------------------------------')
+print("姓名：%s"%name)
+print("职位：%s"%position)
+print("地址：%s"%address)
+print('--------------------------------------------------')
+```
+结果:
+```
+--------------------------------------------------
+姓名：laot
+职位：学生
+地址：辽宁鞍山
+-------------------------------------------------
+```
+### 字符串输入
+之前在学习input的时候，通过它能够完成从键盘获取数据，然后保存到指定的变量中；
+注意：input获取的数据，都以字符串的方式进行保存，即使输入的是数字，那么也是以字符串方式保存
 
+demo:
+```
+userName = input('请输入用户名:')
+print("用户名为：%s"%userName)
 
+password = input('请输入密码:')
+print("密码为：%s"%password)
+```
+结果：（根据输入的不同结果也不同）
+![](http://p3ek8hcdl.bkt.clouddn.com/image/jdfwstr.gif)
 
+### 下标和切片
+#### 下标索引
+所谓“下标”，就是编号，就好比超市中的存储柜的编号，通过这个编号就能找到相应的存储空间
+
+字符串中"下标"的使用
+列表与元组支持下标索引好理解，字符串实际上就是字符的数组，所以也支持下标索引。
+如果有字符串:name = 'abcdef'，在内存中的实际存储如下:
+
+![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb001.png)
+
+如果想取出部分字符，那么可以通过`下标`的方法，（注意python中下标从 0 开始）
+
+```
+name = 'abcdef'
+
+print(name[0])
+print(name[1])
+print(name[2])
+```
+运行结果: 
+![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb002.png)
+
+#### 切片
+切片是指对操作的对象截取其中一部分的操作。字符串、列表、元组都支持切片操作。
+
++ 切片的语法：[起始:结束:步长]
++ 注意：选取的区间属于左闭右开型，即从"起始"位开始，到"结束"位的前一位结束（不包含结束位本身)。
+
+我们以字符串为例讲解。
+如果取出一部分，则可以在中括号[]中，使用:
+
+```
+name = 'abcdef'
+
+print(name[0:3]) # 取 下标0~2 的字符
+```
+运行结果:
+![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb003.png)
+
+```
+name = 'abcdef'
+
+print(name[3:5]) # 取 下标为3、4 的字符
+```
+运行结果：
+![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb004.png)
+
+```
+name = 'abcdef'
+
+print(name[2:]) # 取 下标为2开始到最后的字符
+```
+运行结果：
+![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb005.png)
+```
+ >>> a = "abcdef"
+ >>> a[:3]
+ 'abc'
+ >>> a[::2]
+ 'ace'
+ >>> a[5:1:2] 
+ ''
+ >>> a[1:5:2]
+ 'bd'
+ >>> a[::-2]
+ 'fdb' 
+ >>> a[5:1:-2]
+ 'fd'
+```
+
+### 字符串常见操作
+如有字符串mystr = 'hello world itcast and itcastcpp'，以下是常见的操作
+
+#### <1>find
+检测 str 是否包含在 mystr中，如果是返回开始的索引值，否则返回-1
+```
+mystr.find(str, start=0, end=len(mystr))
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_215.png)
+
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_216.png)
+
+#### <2>index
+跟find()方法一样，只不过如果str不在 mystr中会报一个异常.
+```
+mystr.index(str, start=0, end=len(mystr))
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_217.png)
+
+#### <3>count
+返回 str在start和end之间 在 mystr里面出现的次数
+```
+mystr.count(str, start=0, end=len(mystr))
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_218.png)
+
+#### <4>replace
+把 mystr 中的 str1 替换成 str2,如果 count 指定，则替换不超过 count 次.
+```
+mystr.replace(str1, str2,  mystr.count(str1))
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_214.png)
+
+#### <5>split
+以 str 为分隔符切片 mystr，如果 maxsplit有指定值，则仅分隔 maxsplit 个子字符串
+```
+mystr.split(str=" ", 2)
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_211.png)
+
+#### <6>capitalize
+把字符串的第一个字符大写
+```
+mystr.capitalize()
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_2191.png)
+
+#### <7>title
+把字符串的每个单词首字母大写
+```
+>>> a = "hello ixysec"
+>>> a.title()
+'Hello Ixysec'
+```
+
+#### <8>startswith
+检查字符串是否是以 obj 开头, 是则返回 True，否则返回 False
+```
+mystr.startswith(obj)
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_221.png)
+
+#### <9>endswith
+检查字符串是否以obj结束，如果是返回True,否则返回 False.
+```
+mystr.endswith(obj)
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_222.png)
+
+#### <10>lower
+转换 mystr 中所有大写字符为小写
+```
+mystr.lower()
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_223.png)
+
+#### <11>upper
+转换 mystr 中的小写字母为大写
+```
+mystr.upper()
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20aaaa4.png)
+
+#### <12>ljust
+返回一个原字符串左对齐,并使用空格填充至长度 width 的新字符串
+```
+mystr.ljust(width) 
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_225.png)
+
+#### <13>rjust
+返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串
+```
+mystr.rjust(width)
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_226.png)
+
+#### <14>center
+返回一个原字符串居中,并使用空格填充至长度 width 的新字符串
+```
+mystr.center(width)
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_220.png)
+
+#### <15>lstrip
+删除 mystr 左边的空白字符
+```
+mystr.lstrip()
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_227.png)
+
+#### <16>rstrip
+删除 mystr 字符串末尾的空白字符
+```
+mystr.rstrip()
+```
+![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_228.png)
+
+#### <17>strip
+删除mystr字符串两端的空白字符
+```
+>>> a = "\n\t itcast \t\n"
+>>> a.strip()
+'itcast'
+```
+
+#### <18>rfind
+类似于 find()函数，不过是从右边开始查找.
+```
+mystr.rfind(str, start=0,end=len(mystr))
+```
+
+#### <19>rindex
+类似于 index()，不过是从右边开始.
+```
+mystr.rindex( str, start=0,end=len(mystr))
+```
+
+#### <20>partition
+把mystr以str分割成三部分,str前，str和str后
+```
+mystr.partition(str)
+```
+
+#### <21>rpartition
+类似于 partition()函数,不过是从右边开始.
+```
+mystr.rpartition(str)
+```
+
+#### <22>splitlines
+按照行分隔，返回一个包含各行作为元素的列表
+```
+mystr.splitlines()
+```
+
+#### <23>isalpha
+如果 mystr 所有字符都是字母 则返回 True,否则返回 False
+```
+mystr.isalpha()
+```
+
+#### <24>isdigit
+如果 mystr 只包含数字则返回 True 否则返回 False.
+```
+mystr.isdigit()
+```
+
+#### <25>isalnum
+如果 mystr 所有字符都是字母或数字则返回 True,否则返回 False
+```
+mystr.isalnum()
+```
+
+#### <26>isspace
+如果 mystr 中只包含空格，则返回 True，否则返回 False
+```
+mystr.isspace()
+```
+
+#### <27>join
+mystr 中每个字符后面插入str,构造出一个新的字符串
+```
+mystr.join(str)
+```
+
+### 列表介绍
 
 
 
