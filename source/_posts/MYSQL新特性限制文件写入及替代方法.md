@@ -43,7 +43,7 @@ show global variables like '%secure%';
 ## 高权限注入遇到secure_file_priv
 在mysql高版本的配置文件中默认没有secure_file_priv这个选项，但是你用SQL语句来查看secure_file_priv发现，没配置这个选项就是NULL，也就是说无法导出文件。
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/sql/sql034.png)
+![](http://image.ixysec.com/image/sql/sql034.png)
 
 替代方法：
 

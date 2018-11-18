@@ -7,7 +7,7 @@ tags:
 	- Database
 categories: Database
 ---
-![](http://p3ek8hcdl.bkt.clouddn.com/mysqlimg.jpg)<!-- more -->
+![](http://image.ixysec.com/mysqlimg.jpg)<!-- more -->
 查看[官方网站](https://www.mysql.com/)
 查看[数据库排名](https://db-engines.com/en/ranking)
 
@@ -103,7 +103,7 @@ mysql -uroot -proot -h127.0.0.1
 -p 安装时设置的密码
 -h 连接的主机ip地址
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/mysql1.jpg)
+![](http://image.ixysec.com/image/mysql1.jpg)
 
 + 退出登录
 ```
@@ -240,7 +240,7 @@ mysql -uroot –p 数据库名 < ~/Desktop/备份文件.sql
 ```
 select distinct gender from students;
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/distinct.jpg)
+![](http://image.ixysec.com/image/distinct.jpg)
 
 ### 条件
 + 使用where子句对表中的数据筛选，结果为true的行会出现在结果集中

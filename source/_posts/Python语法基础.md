@@ -8,7 +8,7 @@ tags:
     - 语法
 categories: Python
 ---
-![](http://p3ek8hcdl.bkt.clouddn.com/image/python.jpg)<!-- more -->
+![](http://image.ixysec.com/image/python.jpg)<!-- more -->
 
 ## 认识python和基础知识
 
@@ -20,30 +20,30 @@ Python具有丰富和强大的库。它常被昵称为胶水语言，能够把�
 ### 第一个python程序
 #### 编写python程序方法1
 打开“超级终端” 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc001.png)
+![](http://image.ixysec.com/image/pyjc001.png)
 
 输入python3 ，输入```python3```表示用的python这门编程语言的第3个版本，如果只输入python的话表示用的是python的第2个版本
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc002.png)
+![](http://image.ixysec.com/image/pyjc002.png)
 
 输入以下代码
 ```
 print('hello world')
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc003.png)
+![](http://image.ixysec.com/image/pyjc003.png)
 #### 编写python程序方法2
 打开编辑软件```sublime```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc004.png)
+![](http://image.ixysec.com/image/pyjc004.png)
 把以下代码，编写如下代码
-![](http://p3ek8hcdl.bkt.clouddn.com/pyjc005.png)
+![](http://image.ixysec.com/pyjc005.png)
 保存代码
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc006.png)
+![](http://image.ixysec.com/image/pyjc006.png)
 运行程序
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc007.png)
+![](http://image.ixysec.com/image/pyjc007.png)
 #### 另外一种运行python的程序的方法
 在代码第一行写入执行时的python解释器路径，编辑完后需要对此python文件添加'x'权限
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc008.png)
+![](http://image.ixysec.com/image/pyjc008.png)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc009.png)
+![](http://image.ixysec.com/image/pyjc009.png)
 ### 注释
 通过用自己熟悉的语言，在程序中对某些代码进行标注说明，这就是注释的作用，能够大大增强程序的可读性
 #### 单行注释
@@ -66,7 +66,7 @@ print('hello world')
 print('你好')
 ```
 如果直接运行输出，程序会出错：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/20180701103102.jpg)
+![](http://image.ixysec.com/image/20180701103102.jpg)
 解决的办法为：在程序的开头写入如下代码，这就是中文注释
 ```
 #coding=utf-8
@@ -107,7 +107,7 @@ result = num1 + num2 #把num1和num2这两个"菜篮子"中的数据进行累加
 
 #### 变量的类型
 为了更充分的利用内存空间以及更有效率的管理内存，变量是有不同的类型的，如下所示:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc010.png)
+![](http://image.ixysec.com/image/pyjc010.png)
 
 + 怎样知道一个变量的类型呢？
     + 在python中，只要定义了一个变量，而且它有数据，那么它的类型就已经确定了，不需要咱们开发者主动的去说明它的类型，系统会自动辨别
@@ -148,7 +148,7 @@ if      in      import     is        lambda     not         or      pass
 print   raise   return     try       while      with        yield
 ```
 可以通过以下命令进行查看当前系统中python的关键字
-![](http://p3ek8hcdl.bkt.clouddn.com/image/pyjc011.png)
+![](http://image.ixysec.com/image/pyjc011.png)
 
 ### 输出
 #### 普通的输出
@@ -236,7 +236,7 @@ print '您刚刚输入的密码是:', password
 ```
 运行结果:
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/py001.gif)
+![](http://image.ixysec.com/image/py001.gif)
 注意:
 
 + raw_input()的小括号中放入的是，提示信息，用来在获取数据之前给用户的一个简单提示
@@ -662,7 +662,7 @@ else:
 
 ### if应用:猜拳游戏
 #### 运行效果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/jdfwpy.gif)
+![](http://image.ixysec.com/image/jdfwpy.gif)
 
 #### 参考代码:
 ```
@@ -809,7 +809,7 @@ while i<=5:
 ```
 #### while嵌套应用二：九九乘法表
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20161017_87.png)
+![](http://image.ixysec.com/image/Snip20161017_87.png)
 
 参考代码：
 ```
@@ -841,7 +841,7 @@ for x in name:
     print(x)
 ```
 运行结果如下:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/20180702211608.jpg)
+![](http://image.ixysec.com/image/20180702211608.jpg)
 
 #### demo2
 ```
@@ -853,7 +853,7 @@ else:
     print("没有数据")
 ```
 运行结果如下:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/20180702211958.jpg)
+![](http://image.ixysec.com/image/20180702211958.jpg)
 
 ### break和continue
 #### break
@@ -866,7 +866,7 @@ for x in name:
     print(x)
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/20180702212315.jpg)
+![](http://image.ixysec.com/image/20180702212315.jpg)
 
 带有break的循环示例如下:
 ```
@@ -879,7 +879,7 @@ for x in name:
     print(x)
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/20180702212615.jpg)
+![](http://image.ixysec.com/image/20180702212615.jpg)
 
 ##### while循环
 普通的循环示例如下：
@@ -892,7 +892,7 @@ while i<10:
     print(i)
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20161017_94.png)
+![](http://image.ixysec.com/image/Snip20161017_94.png)
 
 带有break的循环示例如下:
 ```
@@ -906,7 +906,7 @@ while i<10:
     print(i)
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20161017_93.png)
+![](http://image.ixysec.com/image/Snip20161017_93.png)
 ##### 小总结:
 break的作用：用来结束整个循环
 #### continue
@@ -922,7 +922,7 @@ for x in name:
     print(x)
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20161017_95.png)
+![](http://image.ixysec.com/image/Snip20161017_95.png)
 ##### while循环
 带有continue的循环示例如下:
 ```
@@ -936,7 +936,7 @@ while i<10:
     print(i)
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20161017_96.png)
+![](http://image.ixysec.com/image/Snip20161017_96.png)
 ##### 小总结:
 continue的作用：用来结束本次循环，紧接着执行下一次的循环
 
@@ -1002,7 +1002,7 @@ password = input('请输入密码:')
 print("密码为：%s"%password)
 ```
 结果：（根据输入的不同结果也不同）
-![](http://p3ek8hcdl.bkt.clouddn.com/image/jdfwstr.gif)
+![](http://image.ixysec.com/image/jdfwstr.gif)
 
 ### 下标和切片
 #### 下标索引
@@ -1012,7 +1012,7 @@ print("密码为：%s"%password)
 列表与元组支持下标索引好理解，字符串实际上就是字符的数组，所以也支持下标索引。
 如果有字符串:name = 'abcdef'，在内存中的实际存储如下:
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb001.png)
+![](http://image.ixysec.com/image/strxb001.png)
 
 如果想取出部分字符，那么可以通过`下标`的方法，（注意python中下标从 0 开始）
 
@@ -1024,7 +1024,7 @@ print(name[1])
 print(name[2])
 ```
 运行结果: 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb002.png)
+![](http://image.ixysec.com/image/strxb002.png)
 
 #### 切片
 切片是指对操作的对象截取其中一部分的操作。字符串、列表、元组都支持切片操作。
@@ -1041,7 +1041,7 @@ name = 'abcdef'
 print(name[0:3]) # 取 下标0~2 的字符
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb003.png)
+![](http://image.ixysec.com/image/strxb003.png)
 
 ```
 name = 'abcdef'
@@ -1049,7 +1049,7 @@ name = 'abcdef'
 print(name[3:5]) # 取 下标为3、4 的字符
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb004.png)
+![](http://image.ixysec.com/image/strxb004.png)
 
 ```
 name = 'abcdef'
@@ -1057,7 +1057,7 @@ name = 'abcdef'
 print(name[2:]) # 取 下标为2开始到最后的字符
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/strxb005.png)
+![](http://image.ixysec.com/image/strxb005.png)
 ```
  >>> a = "abcdef"
  >>> a[:3]
@@ -1082,44 +1082,44 @@ print(name[2:]) # 取 下标为2开始到最后的字符
 ```
 mystr.find(str, start=0, end=len(mystr))
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_215.png)
+![](http://image.ixysec.com/image/Snip20160814_215.png)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_216.png)
+![](http://image.ixysec.com/image/Snip20160814_216.png)
 
 #### <2>index
 跟find()方法一样，只不过如果str不在 mystr中会报一个异常.
 ```
 mystr.index(str, start=0, end=len(mystr))
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_217.png)
+![](http://image.ixysec.com/image/Snip20160814_217.png)
 
 #### <3>count
 返回 str在start和end之间 在 mystr里面出现的次数
 ```
 mystr.count(str, start=0, end=len(mystr))
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_218.png)
+![](http://image.ixysec.com/image/Snip20160814_218.png)
 
 #### <4>replace
 把 mystr 中的 str1 替换成 str2,如果 count 指定，则替换不超过 count 次.
 ```
 mystr.replace(str1, str2,  mystr.count(str1))
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_214.png)
+![](http://image.ixysec.com/image/Snip20160814_214.png)
 
 #### <5>split
 以 str 为分隔符切片 mystr，如果 maxsplit有指定值，则仅分隔 maxsplit 个子字符串
 ```
 mystr.split(str=" ", 2)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_211.png)
+![](http://image.ixysec.com/image/Snip20160814_211.png)
 
 #### <6>capitalize
 把字符串的第一个字符大写
 ```
 mystr.capitalize()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_2191.png)
+![](http://image.ixysec.com/image/Snip20160814_2191.png)
 
 #### <7>title
 把字符串的每个单词首字母大写
@@ -1134,63 +1134,63 @@ mystr.capitalize()
 ```
 mystr.startswith(obj)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_221.png)
+![](http://image.ixysec.com/image/Snip20160814_221.png)
 
 #### <9>endswith
 检查字符串是否以obj结束，如果是返回True,否则返回 False.
 ```
 mystr.endswith(obj)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_222.png)
+![](http://image.ixysec.com/image/Snip20160814_222.png)
 
 #### <10>lower
 转换 mystr 中所有大写字符为小写
 ```
 mystr.lower()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_223.png)
+![](http://image.ixysec.com/image/Snip20160814_223.png)
 
 #### <11>upper
 转换 mystr 中的小写字母为大写
 ```
 mystr.upper()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20aaaa4.png)
+![](http://image.ixysec.com/image/Snip20aaaa4.png)
 
 #### <12>ljust
 返回一个原字符串左对齐,并使用空格填充至长度 width 的新字符串
 ```
 mystr.ljust(width) 
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_225.png)
+![](http://image.ixysec.com/image/Snip20160814_225.png)
 
 #### <13>rjust
 返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串
 ```
 mystr.rjust(width)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_226.png)
+![](http://image.ixysec.com/image/Snip20160814_226.png)
 
 #### <14>center
 返回一个原字符串居中,并使用空格填充至长度 width 的新字符串
 ```
 mystr.center(width)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_220.png)
+![](http://image.ixysec.com/image/Snip20160814_220.png)
 
 #### <15>lstrip
 删除 mystr 左边的空白字符
 ```
 mystr.lstrip()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_227.png)
+![](http://image.ixysec.com/image/Snip20160814_227.png)
 
 #### <16>rstrip
 删除 mystr 字符串末尾的空白字符
 ```
 mystr.rstrip()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160814_228.png)
+![](http://image.ixysec.com/image/Snip20160814_228.png)
 
 #### <17>strip
 删除mystr字符串两端的空白字符

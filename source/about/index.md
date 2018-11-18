@@ -8,7 +8,7 @@ title: 关于
 
 一辆车，一条狗，两个人！
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/5c156756gy1fsld9dpx6sj20qo0zk16q.jpg)
+![](http://image.ixysec.com/image/5c156756gy1fsld9dpx6sj20qo0zk16q.jpg)
 
 欢迎热爱网络的小伙伴一起交流学习。
 

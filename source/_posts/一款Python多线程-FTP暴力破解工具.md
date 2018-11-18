@@ -9,7 +9,7 @@ tags:
 categories: 工具
 ---
 仿土司上一位老哥写的FTP爆破工具，修复了一些BUG，添加了多线程。
-![](http://p3ek8hcdl.bkt.clouddn.com/python/image/ftpbrute.png)<!-- more -->
+![](http://image.ixysec.com/python/image/ftpbrute.png)<!-- more -->
 
 ``` python
 #!/usr/bin/env python
@@ -194,4 +194,4 @@ if __name__ == "__main__":
     main()
 ```
 
-下载地址：[点我下载](http://p3ek8hcdl.bkt.clouddn.com/file/ftp_brute.rar)
+下载地址：[点我下载](http://image.ixysec.com/file/ftp_brute.rar)

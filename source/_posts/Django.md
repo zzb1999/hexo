@@ -6,7 +6,7 @@ tags:
 	- django
 categories: Python
 ---
-![](http://p3ek8hcdl.bkt.clouddn.com/image/timgsss.jpg)<!-- more -->
+![](http://image.ixysec.com/image/timgsss.jpg)<!-- more -->
 ## 简介
 ***
 + MVC
@@ -69,13 +69,13 @@ pip freeze
 安装1.8.2版本，稳定性高、使用广、文档多的版本
 pip install django==1.8.2
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/django.jpg)
+![](http://image.ixysec.com/image/django.jpg)
 #### 创建项目
 ```
 django-admin startproject test1
 ```
 进入test1目录，目录结构如下图：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/test1.png)
+![](http://image.ixysec.com/image/test1.png)
 #### 目录说明
 ```
 manage.py：一个命令行工具，可以使你用多种方式对Django项目进行交互
@@ -113,7 +113,7 @@ wsgi.py：项目与WSGI兼容的Web服务器入口
 django支持的数据库包括：sqlite、mysql等主流数据库
 Django默认使用SQLite数据库
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/djangodbs.jpg)
+![](http://image.ixysec.com/image/djangodbs.jpg)
 ```
 setting.py 
 mysql  配置
@@ -204,7 +204,7 @@ INSTALLED_APPS = (
 python manage.py makemigrations
 迁移文件被生成到应用的migrations目录
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/migrate.png)
+![](http://image.ixysec.com/image/migrate.png)
 ```
 执行迁移：执行sql语句生成数据表
 python manage.py migrate
@@ -448,7 +448,7 @@ urlpatterns = [
 ### 模板
 + 模板是html页面，可以根据视图中传递的数据填充值
 + 创建模板的目录如下图：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/templates.png)
+![](http://image.ixysec.com/image/templates.png)
 + 修改settings.py文件，设置TEMPLATES的DIRS值
 ```
 'DIRS': [os.path.join(BASE_DIR, 'templates')],
@@ -517,7 +517,7 @@ def detail(request, id):
     context = RequestContext(request, {'book': book})
     return HttpResponse(template.render(context))
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/templates.jpg)
+![](http://image.ixysec.com/image/templates.jpg)
 
 ### 去除模板的硬编码
 + 在index.html模板中，超链接是硬编码的，此时的请求地址为“127.0.0.1/1/”
@@ -570,7 +570,7 @@ def detail(request, id):
     + 将sql查询到的结果转换为对象、列表
 + 这极大的减轻了开发人员的工作量，不需要面对因数据库变更而导致的无效劳动
 + Django中的模型包含存储数据的字段和约束，对应着数据库中唯一的表
-![](http://p3ek8hcdl.bkt.clouddn.com/image/orm.png)
+![](http://image.ixysec.com/image/orm.png)
 ### 使用MySql数据库
 + 在虚拟环境中安装mysql包
 ```
@@ -751,9 +751,9 @@ insert into booktest_heroinfo(hname,hgender,hbook_id,hcontent,isDelete) values
 ('程灵素',0,4,'医术',0),
 ('袁紫衣',0,4,'六合拳',0);
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/books.jpg)
+![](http://image.ixysec.com/image/books.jpg)
  
-![](http://p3ek8hcdl.bkt.clouddn.com/image/heros.jpg)
+![](http://image.ixysec.com/image/heros.jpg)
 
 ### 模型成员
 #### 类的属性
@@ -780,7 +780,7 @@ class BookInfo(models.Model):
     ...
     books = BookInfoManager()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/manager.jpg)
+![](http://image.ixysec.com/image/manager.jpg)
 
 #### 创建对象
 + 当创建对象时，django不会对数据库进行读写操作
@@ -802,7 +802,7 @@ class BookInfo(models.Model):
 调用：book=BookInfo.create("hello",datetime(1980,10,11));
 保存：book.save()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/clscreate.jpg)
+![](http://image.ixysec.com/image/clscreate.jpg)
 
 + 方式二：在自定义管理器中添加一个方法
 + 在管理器的方法中，可以通过self.model来得到它所属的模型类
@@ -823,7 +823,7 @@ class BookInfo(models.Model):
 调用：book=BookInfo.books.create_book("abc",datetime(1980,1,1))
 保存：book.save()
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/bookscreate.jpg)
+![](http://image.ixysec.com/image/bookscreate.jpg)
 
 #### 实例的属性
 + DoesNotExist：在进行单个查询时，模型的对象不存在时会引发此异常，结合try/except使用
@@ -859,9 +859,9 @@ filter(键1=值1,键2=值2)
 等价于
 filter(键1=值1).filter(键2=值2)
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/filter_exclude.jpg)
+![](http://image.ixysec.com/filter_exclude.jpg)
  
-![](http://p3ek8hcdl.bkt.clouddn.com/orderby_values.jpg)
+![](http://image.ixysec.com/orderby_values.jpg)
 
 + 返回单个值的方法
     + get()：返回单个满足条件的对象
@@ -872,7 +872,7 @@ filter(键1=值1).filter(键2=值2)
     + last()：返回最后一个对象
     + exists()：判断查询集中是否有数据，如果有则返回True
 
-![](http://p3ek8hcdl.bkt.clouddn.com/select.jpg)
+![](http://image.ixysec.com/select.jpg)
 
 #### 限制查询集
 + 查询集返回列表，可以使用下标的方式进行限制，等同于sql中的limit和offset子句
@@ -1023,7 +1023,7 @@ class AreaInfo(models.Model):
 上级对象：area.aParent
 下级对象：area.areainfo_set.all()
 ```
-+ [加入测试数据](http://p3ek8hcdl.bkt.clouddn.com/txt/area.txt)
++ [加入测试数据](http://image.ixysec.com/txt/area.txt)
 + 在booktest/views.py中定义视图area
 ```
 from models import AreaInfo
@@ -1058,7 +1058,7 @@ urlpatterns = [
     url(r'^area/$', views.area, name='area')
 ]
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/area.jpg)
+![](http://image.ixysec.com/image/area.jpg)
 
 ## 视图
 + 视图接受Web请求并且返回Web响应
@@ -1066,7 +1066,7 @@ urlpatterns = [
 + 响应可以是一张网页的HTML内容，一个重定向，一个404错误等等
 + 响应处理过程如下图：
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/views.jpg)
+![](http://image.ixysec.com/image/views.jpg)
 
 ### URLconf
 + 在settings.py文件中通过ROOT_URLCONF指定根级url的配置
@@ -1084,15 +1084,15 @@ urlpatterns = [
 http://www.ixysec.com/python/django/?i=1&p=new，只匹配“python/django/”部分
 ```
 + 正则表达式非命名组，通过位置参数传递给视图
-![](http://p3ek8hcdl.bkt.clouddn.com/image/viewstest.jpg)
+![](http://image.ixysec.com/image/viewstest.jpg)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/viewstest2.jpg)
+![](http://image.ixysec.com/viewstest2.jpg)
 
 + 正则表达式命名组，通过关键字参数传递给视图，本例中关键字参数为id
 ```
 url(r'^(?P<id1>\d+)/(?P<id3>\d+)/(?P<id2>\d+)/$', views.test),
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/viewstest3.jpg)
+![](http://image.ixysec.com/image/viewstest3.jpg)
 
 + 参数匹配规则：优先使用命名参数，如果没有命名参数则使用位置参数
 + 每个捕获的参数都作为一个普通的python字符串传递给视图
@@ -1164,7 +1164,7 @@ ALLOWED_HOSTS = ['*', ]
 ```
 + 请求一个不存在的地址
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/views404.jpg)
+![](http://image.ixysec.com/image/views404.jpg)
 
 #### 500 (server error) 视图
 + defaults.server_error(request, template_name='500.html')
@@ -1296,7 +1296,7 @@ b:{{ b }}
 </body>
 </html>
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/gettest.jpg)
+![](http://image.ixysec.com/image/gettest.jpg)
 
 #### POST属性
 + QueryDict类型的对象
@@ -1364,7 +1364,7 @@ url(r'^postTest2/$',views.postTest2)
 </html>
 ```
 + 注意：使用表单提交，注释掉settings.py中的中间件crsf
-![](http://p3ek8hcdl.bkt.clouddn.com/image/jdfw.gif)
+![](http://image.ixysec.com/image/jdfw.gif)
 
 ### Response对象
 #### HttpResponse对象
@@ -1423,7 +1423,7 @@ def redirect2(request):
     return HttpResponse('跳转后的地址')
 
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/redirect.gif)
+![](http://image.ixysec.com/image/redirect.gif)
 
 #### 子类JsonResponse
 + 返回json数据，一般用于异步请求
@@ -1437,7 +1437,7 @@ from django.http import JsonResponse
 def jsonTest(request):
     return JsonResponse({'data':[1,2,3,4]})
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/jsontest.jpg)
+![](http://image.ixysec.com/image/jsontest.jpg)
 
 #### 简写函数
 ##### render
@@ -1496,7 +1496,7 @@ MIDDLEWARE_CLASSES列表中添加：
 #### 用户登录示例
 + 操作效果如下图：
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/session.gif)
+![](http://image.ixysec.com/image/session.gif)
 
 + 在views.py文件中创建视图
 ```
@@ -1572,7 +1572,7 @@ urlpatterns = [
 + 如果value为None，那么会话永不过期
 + 修改视图中session_login_handle函数，查看效果
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/sessiontest.jpg)
+![](http://image.ixysec.com/image/sessiontest.jpg)
 
 #### 存储session
 + 使用存储会话的方式，可以使用settings.py的SESSION_ENGINE项指定
@@ -1588,9 +1588,9 @@ SESSION_ENGINE='django.contrib.sessions.backends.cache'
 ```
 SESSION_ENGINE='django.contrib.sessions.backends.cached_db'
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/sessiondb.jpg)
+![](http://image.ixysec.com/image/sessiondb.jpg)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/sessionbase64.jpg)
+![](http://image.ixysec.com/image/sessionbase64.jpg)
 
 #### 使用Redis缓存session
 + 会话还支持文件、纯cookie、Memcached、Redis等方式存储，下面演示使用redis存储
@@ -1633,7 +1633,7 @@ keys *：查看所有的键
 get name：获取指定键的值
 del name：删除指定名称的键
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/sessionredis.png)
+![](http://image.ixysec.com/image/sessionredis.png)
 
 ## 模板
 ### 模板介绍
@@ -1726,7 +1726,7 @@ def templatesTest(request):
 ```
 {{hero.showName}}
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/templatestest.jpg)
+![](http://image.ixysec.com/image/templatestest.jpg)
 #### 标签
 + 语法：{ % tag % }
 + 作用
@@ -1742,7 +1742,7 @@ def templatesTest(request):
 给出的列表为或列表不存在时，执行此处
 { %endfor%}
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/forTest.jpg)
+![](http://image.ixysec.com/image/forTest.jpg)
 + if标签
 ```
 { %if ...%}
@@ -1753,7 +1753,7 @@ def templatesTest(request):
 逻辑3
 { %endif%}
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/iftest.jpg)
+![](http://image.ixysec.com/image/iftest.jpg)
 + comment标签
 ```
 { % comment % }
@@ -1822,13 +1822,13 @@ value|date:'Y-m-d'
 警告
 不要忘记在函数路径或模式名称周围加引号，否则值将被解释为上下文变量！
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/urltest.png)
+![](http://image.ixysec.com/image/urltest.png)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/urltest1.jpg)
+![](http://image.ixysec.com/image/urltest1.jpg)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/urltest2.jpg)
+![](http://image.ixysec.com/image/urltest2.jpg)
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/urltest3.jpg)
+![](http://image.ixysec.com/image/urltest3.jpg)
 
 ### 模板继承
 
@@ -1919,7 +1919,7 @@ def index(request):
 应写为
 { { data|default:"&lt;b&gt;123&lt;/b&gt;" }}
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/htmltest.jpg)
+![](http://image.ixysec.com/image/htmltest.jpg)
 
 ### csrf
 + 全称Cross Site Request Forgery，跨站请求伪造
@@ -1964,7 +1964,7 @@ url(r'^csrf2/$', views.csrf2),
 </html>
 ```
 + 在浏览器中访问，查看效果，报错如下：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/csrf1.png)
+![](http://image.ixysec.com/image/csrf1.png)
 
 + 将settings.py中的中间件代码'django.middleware.csrf.CsrfViewMiddleware'注释
 + 查看csrf1的源代码，复制，在自己的网站内建一个html文件，粘贴源码，访问查看效果
@@ -1981,7 +1981,7 @@ url(r'^csrf2/$', views.csrf2),
 ```
 + step3：测试刚才的两个请求，发现跨站的请求被拒绝了，效果如下图
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/csrf2.png)
+![](http://image.ixysec.com/image/csrf2.png)
 #### 取消保护
 + 如果某些视图不需要保护，可以使用装饰器csrf_exempt，模板中也不需要写标签，修改csrf2的视图如下
 ```
@@ -2002,7 +2002,7 @@ def csrf2(request):
 + 在浏览器的调试工具中，通过network标签可以查看cookie信息
 + 本站中自动添加了cookie信息，如下图
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/csrf3.png)
+![](http://image.ixysec.com/image/csrf3.png)
 + 查看跨站的信息，并没有cookie信息，即使加入上面的隐藏域代码，发现又可以访问了
 + 结论：django的csrf不是完全的安全
 + 当提交请求时，中间件'django.middleware.csrf.CsrfViewMiddleware'会对提交的cookie及隐藏域的内容进行验证，如果失败则返回403错误
@@ -2012,7 +2012,7 @@ def csrf2(request):
 + 使用验证码也是一种有效的防止crsf的方法
 + 验证码效果如下图：
 
-![](http://p3ek8hcdl.bkt.clouddn.com/image/verifycode.png)
+![](http://image.ixysec.com/image/verifycode.png)
 
 #### 验证码视图
 + 新建viewsUtil.py，定义函数verifycode
@@ -2486,7 +2486,7 @@ url(r'^pagTest(\d*)/$', views.pagTest),
 </body>
 </html>
 ```
-![](http://p3ek8hcdl.bkt.clouddn.com/image/page.gif)
+![](http://image.ixysec.com/image/page.gif)
 
 ### ajax
 #### 使用Ajax
@@ -2497,11 +2497,11 @@ url(r'^pagTest(\d*)/$', views.pagTest),
 + 由于csrf的约束，推荐使用$.get
 + 示例：实现省市区的选择
 + 最终实现效果如图：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/city.gif)
+![](http://image.ixysec.com/image/city.gif)
 
 ##### 引入js文件
 + js文件属于静态文件，创建目录结构如图：
-![](http://p3ek8hcdl.bkt.clouddn.com/image/js.jpg)
+![](http://image.ixysec.com/image/js.jpg)
 
 ##### 修改settings.py关于静态文件的设置
 ```
@@ -2522,7 +2522,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 ##### 向表中填充示例数据
-+ [测试数据](http://p3ek8hcdl.bkt.clouddn.com/txt/area.txt)
++ [测试数据](http://image.ixysec.com/txt/area.txt)
 + 注意将表的名称完成替换
 
 ##### 在views.py中编写视图
